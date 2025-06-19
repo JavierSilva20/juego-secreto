@@ -1,3 +1,5 @@
+/* Aplica box-sizing a todos los elementos y elimina márgenes y rellenos por defecto. 
+    También establece el color de texto blanco globalmente. */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,27 +7,28 @@
     color: white;
 }
 
+/* Estilos para el body: fondo con gradiente, altura completa y centrado de contenido */
 body {
-    background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
+    background: linear-gradient(#1b5e20 0%, #388e3c 100%);
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
+/* Imagen de fondo semitransparente superpuesta al body */
 body::before {
     background-image: url("img/code.png");
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: left;
     content: "";
     display: block;
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0.4;
 }
 
+/* Contenedor principal con fondo, borde, sombra y bordes redondeados */
 .container {
     width: 1200px;
     height: 600px;
@@ -40,19 +43,29 @@ body::before {
     position: relative;
 }
 
-
+/* Contenido interno del contenedor, alineado abajo y en fila */
 .container__contenido {
     display: flex;
     align-items: center;
     position: absolute;
     bottom: 0;
+    height: 100%;
 }
 
+/* Sección de información, ocupa espacio flexible y tiene padding */
 .container__informaciones {
     flex: 1;
-    padding: 3rem;
+    padding: 1rem 1rem;
+    height: 100%;
 }
 
+/* Imagen de persona dentro del contenedor */
+.container__imagen-persona {
+    height: 600px;
+    width: 625px;
+}
+
+/* Botón principal estilizado */
 .container__boton {
     border-radius: 16px;
     background: #1875E8;
@@ -62,20 +75,32 @@ body::before {
     font-weight: 700;
     border: none;
     margin-top: 2rem;
+    cursor: pointer;
 }
 
+.container__boton:hover,
+.container__boton:active {
+    background: #1451a3; /* Cambia el color al pasar el mouse o al tocar */
+    color: #fff;
+    transition: 0.2s;
+}
+
+/* Botón deshabilitado con color de fondo gris */
 .container__boton:disabled {
     background: #898989;
 }
 
+/* Espaciado para textos dentro del contenedor */
 .container__texto {
     margin: 16px 0 16px 0;
 }
 
+/* Texto azul para resaltar */
 .container__texto-azul {
     color: #1875E8;
 }
 
+/* Input estilizado para el contenedor */
 .container__input {
     width: 100%;
     height: 72px;
@@ -89,23 +114,84 @@ body::before {
     font-family: 'Inter', sans-serif;
 }
 
+
+/* Contenedor para agrupar botones con espacio entre ellos */
 .container__botones {
     display: flex;
     gap: 2em;
 }
 
+/* Título principal con fuente y tamaño grande */
 h1 {
     font-family: 'Chakra Petch', sans-serif;
     font-size: 72px;
     padding-bottom: 3rem;
 }
 
+/* Fuente para párrafos y botones */
 p,
 button {
     font-family: 'Inter', sans-serif;
 }
 
+/* Párrafo de texto con tamaño grande */
 .texto__parrafo {
     font-size: 32px;
     font-weight: 400;
+}
+
+/* Estilos responsivos para pantallas menores a 768px */
+@media (max-width: 1100px) {
+    /* Contenedor principal se adapta a ancho de la ventana y cambia a columna */
+    .container {
+        width: 95vw;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    /* Contenido interno se apila en columna y ocupa todo el ancho */
+    .container__contenido {
+        flex-direction: column;
+        position: static;
+        width: 100%;
+    }
+
+    /* Información ocupa todo el ancho y reduce padding */
+    .container__informaciones {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    /* Imagen de persona se adapta al ancho de la ventana */
+    .container__imagen-persona {
+        width: 50vw;
+        height: 50vw;
+        margin: 1rem auto 0 auto;
+        display: block;
+    }
+
+    /* Título principal reduce tamaño y padding */
+    h1 {
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+    }
+
+    /* Input y botón reducen tamaño y padding */
+    .container__input {
+        font-size: 1.2rem;
+        height: 48px;
+        padding: 1rem;
+    }
+
+    .container__boton {
+        font-size: 1.2rem;
+        padding: 12px 16px;
+    }
+
+    /* Párrafo de texto reduce tamaño */
+    .texto__parrafo {
+        font-size: 1.1rem;
+    }
 }

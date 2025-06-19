@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="es-MX"> <!-- Define el idioma del documento como español de México -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> <!-- Codificación de caracteres UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive -->
+    <!-- Preconexión para optimizar la carga de fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>JS Game</title>
+    <!-- Importa dos familias de fuentes desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Vincula la hoja de estilos CSS -->
+    <title>Numero Secreto</title> <!-- Título de la pestaña del navegador -->
+    <link rel="icon" type="image/x-icon" href="img/numeros.png">
 </head>
 
 <body>
-
+    <!-- Contenedor principal -->
     <div class="container">
         <div class="container__contenido">
+            <!-- Sección de imagen -->
+            <div class="container_imagen">
+                <img src="img/cr7.png" alt="Una persona mirando a la derecha" class="container__imagen-persona" />
+            </div>
+            <!-- Sección de información y controles -->
             <div class="container__informaciones">
                 <div class="container__texto">
-                    <h1></h1>
-                    <p class="texto__parrafo"></p>
+                    <h1></h1> <!-- Título dinámico (probablemente se llena con JS) -->
+                    <p class="texto__parrafo"></p> <!-- Texto dinámico para mensajes -->
                 </div>
+                <!-- Campo de entrada para el usuario (solo números entre 1 y 10) -->
                 <input type="number" id="valorUsuario" min="1" max="10" class="container__input">
+                <!-- Botones de interacción -->
                 <div class="chute container__botones">
                     <button onclick="verificarIntento();" class="container__boton" id="intento" disabled>Intentar</button>
                     <button onclick="reiniciarJuego();" class="container__boton" id="reiniciar" disabled>Nuevo juego</button>
                 </div>
             </div>
-            <img src="./img/ia.png" alt="Una persona mirando a la izquierda" class="container__imagen-persona" />
         </div>
     </div>
 
-
-
-
+    <!-- Vincula el archivo JavaScript principal, que se ejecuta después de cargar el HTML -->
     <script src="app.js" defer></script>
 </body>
 
